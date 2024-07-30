@@ -1,0 +1,52 @@
+﻿@model ContactAbout
+@{
+	string phone = default;
+	if (!string.IsNullOrEmpty(Model.Phone))
+	{
+		phone = string.Concat("(", Model.Phone.Substring(0, 2), ") ", Model.Phone.Substring(2, 3)," ", Model.Phone.Substring(5, 3)," ",Model.Phone.Substring(8, 2)," ",Model.Phone.Substring(10, 2));
+	}
+}
+<div class="contact-map inner-sec">
+	<iframe src="@Model.IFrameLocation" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
+<div class="ad-inf-sec bg-light">
+	<div class="container">
+		<div class="address row">
+			<div class="col-lg-4 address-grid">
+				<div class="row address-info">
+					<div class="col-md-4 address-left text-center">
+						<i class="far fa-map"></i>
+					</div>
+					<div class="col-md-8 address-right text-left">
+						<h6>Adres</h6>
+						<p>
+							@Model.Address
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-4 address-grid">
+				<div class="row address-info">
+					<div class="col-md-4 address-left text-center">
+						<i class="far fa-envelope"></i>
+					</div>
+					<div class="col-md-8 address-right text-left">
+						<h6>E-Mail</h6>
+						<a style="color:blue" target="_blank" href="mailto:@Model.Mail"> @Model.Mail</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-4 address-grid">
+				<div class="row address-info">
+					<div class="col-md-4 address-left text-center">
+						<i class="fas fa-mobile-alt"></i>
+					</div>
+					<div class="col-md-8 address-right text-left">
+						<h6>Telefon</h6>
+						<a target="_blank" style="color:blue" href="https://wa.me/@Model.Phone">@phone</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

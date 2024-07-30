@@ -1,0 +1,81 @@
+﻿@model List<Blog>
+@{
+    ViewData["Title"] = "Bloglar";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+    byte count = default;
+    string className = default;
+}
+@section UserAsidePostsComponent {
+    @await Component.InvokeAsync("UserAsidePostsComponent")
+}
+<div class="col-lg-8 left-blog-info-w3layouts-agileits text-left">
+    <div class="row mb-4">
+        @foreach (Blog item in Model)
+        {
+            switch (count)
+            {
+                case 2:
+                    className = "col-md-6 card my-4";
+                    count = 0;
+                    break;
+                default:
+                    className = "col-md-6 card";
+                    count++;
+                    break;
+            }
+            <div class=@className>
+                <a href="~/Bloglar/Detay/@item.BlogID">
+                    <img src="@item.BlogSmallImage" class="card-img-top img-fluid" alt="..">
+                </a>
+                <div class="card-body">
+                    <ul class="blog-icons my-4">
+                        <li>
+                            <a href="~/Bloglar/Detay/@item.BlogID">
+                                <i class="far fa-calendar-alt"></i> @(((DateTime)item.CreateDate).ToString("dd-MMM-yyyy"))
+                            </a>
+                        </li>
+                        <li class="mx-2">
+                            <a href="~/Bloglar/Detay/@item.BlogID">
+                                <i class="far fa-comment"></i> 21
+                            </a>
+                        </li>
+                        <li>
+                            <a href="~/Bloglar/Detay/@item.BlogID">
+                                <i class="fas fa-eye"></i> 2000
+                            </a>
+                        </li>
+                        <li>
+                            <a href="~/Bloglar/Detay/@item.BlogID">
+                                <i class="fas fa-certificate"></i> @item.Category.CategoryName
+                            </a>
+                        </li>
+                    </ul>
+                    <h5 class="card-title ">
+                        <a href="~/Bloglar/Detay/@item.BlogID">@item.BlogTitle</a>
+                    </h5>
+                    <p class="card-text mb-3">@item.BlogContent.Substring(0, item.BlogContent.Substring(0,100).LastIndexOf(" "))...</p>
+                    <a href="~/Bloglar/Detay/@item.BlogID" class="btn btn-primary read-m">Daha Fazla Oku</a>
+                </div>
+            </div>
+        }
+    </div>
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-left mt-4">
+            <li class="page-item disabled">
+                <a class="page-link" href="#" tabindex="-1">Önceki</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="#">1</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="#">2</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="#">3</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="#">Sonraki</a>
+            </li>
+        </ul>
+    </nav>
+</div>

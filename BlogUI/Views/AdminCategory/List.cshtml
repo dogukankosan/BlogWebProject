@@ -1,0 +1,46 @@
+﻿@model List<Category>
+@{
+    ViewData["Title"] = "List";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>#</th>
+            <th>Kategori Adı</th>
+            <th>Kategori Açıklama</th>
+            <th>Durum</th>
+        </tr>
+        <tr>
+            @foreach (Category item in Model)
+            {
+                <td>@item.CategoryID</td>
+                <td>@item.CategoryName</td>
+                <td>@item.CategoryDesc</td>
+                <td>@item.CategoryStatus</td>
+            }
+        </tr>
+    </table>
+</body>
+</html>

@@ -1,0 +1,19 @@
+﻿@{
+    ViewData["Title"] = "Iletisim";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link href="~/userThema/css/contact.css" rel='stylesheet' type='text/css' />
+</head>
+<body>
+	<div class="container">
+		<section class="main-content-w3layouts-agileits">
+			<h3 class="tittle">Bizimle İletişime Geçin</h3>
+			@await Component.InvokeAsync("UserAboutUsComponent")
+			@await Component.InvokeAsync("UserContactAddComponent")
+		</section>
+	</div>
+</body>
+</html>

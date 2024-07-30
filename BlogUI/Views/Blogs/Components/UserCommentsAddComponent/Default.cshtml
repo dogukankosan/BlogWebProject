@@ -1,0 +1,13 @@
+﻿<div class="comment-top">
+    <h4>Yorum Gönder</h4>
+    <div class="comment-bottom">
+        <form asp-action="Add" asp-controller="Comment" method="post">
+            <input hidden name="BlogID" value="@Model.BlogID" />
+            <input style="color:black" class="form-control" type="text" name="CommentUserName" placeholder="İsminiz" required="">
+            <input style="color:black" class="form-control" type="email" name="" placeholder="E-Mailiniz" required="">
+            <input style="color:black" class="form-control" type="text" name="CommentTitle" placeholder="Konu" required="">
+            <textarea style="color:black" class="form-control" name="CommentContent" placeholder="Mesajınız..." required=""></textarea>
+            <button type="submit" class="btn btn-primary submit">Gönder</button>
+        </form>
+    </div>
+</div>

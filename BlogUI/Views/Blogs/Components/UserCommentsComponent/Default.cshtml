@@ -1,0 +1,20 @@
+﻿@model List<Comment>
+@{
+    string commentName = Model.Count<1?"Daha Önce Bu Bloğa Yorum Yapılmamıştır İlk Yorumu Siz Yapınız":"Yorumlar";
+    string className = Model.Count < 1 ? "alert-danger" : "";
+}
+<div class="comment-top">
+    <h4 class="@className">@commentName</h4>
+    @foreach (Comment item in Model)
+    {
+        <div class="media">
+            <img src="~/userThema/images/t1.jpg" alt=".." class="img-fluid" />
+            <div class="media-body">
+                <h5 class="mt-0">@item.CommentTitle</h5>
+                <p>
+                   @item.CommentContent
+                </p>
+            </div>
+        </div>
+    }
+</div>
