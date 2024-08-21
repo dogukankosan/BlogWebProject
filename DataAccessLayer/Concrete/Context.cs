@@ -6,6 +6,7 @@ namespace DataAccessLayer.Concrete
     public class Context : DbContext
     {
         public DbSet<About> Abouts { get; set; }
+        public DbSet<NewsLetter> NewsLetters { get; set; }
         public DbSet<Blog> Blogs { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Comment> Comments { get; set; }

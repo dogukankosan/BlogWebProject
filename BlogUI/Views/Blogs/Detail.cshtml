@@ -45,7 +45,7 @@
                 @Model.BlogContent
             </p>
         </div>
-        @await Component.InvokeAsync("UserCommentsComponent",Model.BlogID)
+        @await Component.InvokeAsync("UserCommentsComponent", Model.BlogID)
         @await Component.InvokeAsync("UserCommentsAddComponent")
     </div>
 </body>

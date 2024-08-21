@@ -1,4 +1,5 @@
-﻿@{
+﻿@model Writer
+@{
     ViewData["Title"] = "KayitOl";
     Layout = "~/Views/Shared/_UserLayout.cshtml";
 }
@@ -6,6 +7,8 @@
 <html lang="en">
 <head>
 	<link href="~/userThema/css/single.css" rel='stylesheet' type='text/css' />
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="~/lib/jquery/dist/jquery.js"></script>
 </head>
 <body>
 		<div class="container">
@@ -16,42 +19,52 @@
 						<div class="form-row">
 							<div class="col-md-6 mb-3">
 								<label for="validationCustom01">İsim Soyisim</label>
-								<input type="text" class="form-control" name="WriterName" id="validationDefault01" placeholder="" required="">
+								<input type="text" class="form-control" name="WriterName"  >
+							<span asp-validation-for="WriterName" style="color: red;"></span>
 							</div>
 							<div class="col-md-6 mb-3">
 								<label for="validationCustom02">E-Mail</label>
-								<input type="email" name="WriterMail" class="form-control" id="validationDefault02" placeholder="" required="">
+								<input type="email" name="WriterMail" class="form-control" id="validationDefault02" >
+							<span asp-validation-for="WriterMail" style="color: red;"></span>
 							</div>
 						</div>
 						<div class="form-row">
 							<div class="col-md-6 mb-3">
 								<label for="validationCustom01">Hakkınızda</label>
-								<textarea class="form-control" name="WriterAbout" id="validationDefault01" placeholder="" required="">
+								<textarea class="form-control" name="WriterAbout" id="validationDefault01" >
 									</textarea>
+							<span asp-validation-for="WriterAbout" style="color: red;"></span>
 							</div>
 							<div class="col-md-6 mb-3">
 								<label for="validationCustom02">Resminiz</label>
-								<input type="text" name="WriterImage" class="form-control" id="validationDefault02" placeholder="" required="">
+								<input type="text" name="WriterImage" class="form-control" id="validationDefault02" >
+							<span asp-validation-for="WriterImage" style="color: red;"></span>
 							</div>
 						</div>
 						<div class="form-row">
 							<div class="form-group col-md-6">
 								<label for="exampleInputPassword1 mb-2">Şifre</label>
-								<input type="password" name="WriterPassword" class="form-control" id="password1" placeholder="" required="">
+								<input type="password" name="WriterPassword" class="form-control" id="password1" >
+							<span asp-validation-for="WriterPassword" style="color: red;"></span>
 							</div>
 							<div class="form-group col-md-6">
 								<label for="exampleInputPassword2 mb-2">Şifre Doğrula</label>
-								<input type="password" class="form-control" id="password2" placeholder="" required="">
+								<input type="password" class="form-control" id="password2" >
 							</div>
 						</div>
-						<button type="submit" class="btn btn-primary submit mb-4">Kayıt Ol</button>
+						<button type="submit"  class="btn btn-primary submit mb-4">Kayıt Ol</button>
 						<p>
-							<a href="#">Tüm Şartları Okudum Kontrol Ediyorum.</a>
+							<a href="#" id="btn1" >Tüm Şartları Okudum Kontrol Ediyorum.</a>
 						</p>
 					</form>
 				</div>
 			</div>
 		</div>
+		<script>
+			$('#btn1').click(function () {
+			Swal.fire("Sitemizde verdiğiniz mail adresi üzerinden bilgi ve haber e-postaları spam ölçüsüne varmadan gönderilmeye devam edilecektir.Eğer e-posta bülteninden çıkmak isterseniz mail ileti dizisini durdurabilirsiniz,şifre ve mail adresleri şifrelenmiş formatta herhangi bir kullanıcının görmeyeceği şekilde saklanmaktadır.");
+			});
+		</script>
 	<script>
 		window.onload = function () {
 			document.getElementById("password1").onchange = validatePassword;

@@ -1,21 +1,9 @@
 ﻿@model List<Blog>
 @{
-	string countName = Model.Count <1 ? "Daha Önce Hiçbir Blog Açılmamış İlk Bloğu Siz Açınız" : "En İyi 6 Blog";
-	string className = Model.Count<1?"alert-danger":"";
-	string a = Model.ToList().Take(1).Select(x => x.WriterID).FirstOrDefault().ToString() ;
+	string writerH = Model.Count < 2 ? "Bu Yazarın Sadece 1 Tane Bloğu Bulunmaktadır." : "Yazarın Başka Blogları";
 }
-<aside class="col-lg-4 agileits-w3ls-right-blog-con text-left">
-	@await Component.InvokeAsync("UserAsideNewsLetterComponent")
-	@await Component.InvokeAsync("UserAsidePostWriterComponent",a)
 	<div class="tech-btm">
-		<h4 class="@className">
-
-				@if (className!="")
-				{
-					<a href="" class="btn btn-primary">Yeni Blog Ekle</a>
-				}
-			@countName
-		</h4>
+		<h4>@writerH</h4>
 		@foreach (Blog item in Model)
 		{
 			<div class="blog-grids row mb-3">
@@ -37,5 +25,3 @@
 			</div>
 		}
 	</div>
-	@await Component.InvokeAsync("UserAsideCategoryComponent")
-</aside>

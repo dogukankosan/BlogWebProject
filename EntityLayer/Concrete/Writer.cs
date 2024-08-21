@@ -19,5 +19,6 @@ namespace EntityLayer.Concrete
         [MaxLength(250)]
         public required string WriterImage { get; set; }
         public bool WriterStatus { get; set; } = false;
+        public List<Blog>Blogs { get; set; }
     }
 }
