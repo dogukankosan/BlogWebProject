@@ -1,6 +1,15 @@
 ﻿@model List<Category>
+@{
+    string countName = Model.Count < 1 ? "Daha Önce Hiçbir Kategori Açılmamış İlk Kategoriyi Siz Açınız" : "En Popüler 5 Kategori";
+    string className = Model.Count < 1 ? "alert-danger" : "";
+}
 <div class="tech-btm">
-    <h4>Kategoriler</h4>
+    <h4 class="@className">@countName
+    @if (className!="")
+    {   <br />
+        <a href="#" class="form-control btn btn-primary">Yeni Kategori Aç</a>
+    }
+    </h4>
     <ul class="list-group single">
         @foreach (Category item in Model)
         {

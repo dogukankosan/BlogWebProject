@@ -1,0 +1,16 @@
+﻿@{
+    Layout = null;
+}
+<div class="col-lg-4 subscribe-main footer-grid-agileits-w3ls text-left">
+    <h2>Bültenlere Kayıt Ol</h2>
+    <div class="subscribe-main text-left">
+        <div class="subscribe-form">
+            <form asp-action="SubscribeMail" asp-controller="NewsLetter" method="post" class="subscribe_form">
+                <input class="form-control" type="email" name="Mail" placeholder="E-Mailinizi Giriniz.." required="">
+                <button type="submit" class="btn btn-primary submit">Kayıt Ol</button>
+            </form>
+            <div class="clearfix"> </div>
+        </div>
+        <p>Gizliliğiniz Bizim İçin Önemli!</p>
+    </div>
+</div>

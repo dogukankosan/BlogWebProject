@@ -12,7 +12,7 @@ namespace BlogUI.Controllers
 		public IActionResult List()
 		{
 			ViewData["Title"] = "Hakkinda";
-			return View(aboutManager.GetAllList());
+			return View(aboutManager.GetAboutById(1));
 		}
 	}
 }

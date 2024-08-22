@@ -12,7 +12,7 @@ namespace EntityLayer.Concrete
         [MaxLength(250)]
         public required string WriterAbout { get; set; }
         [MaxLength(50)]
-        //todo bunu ayarla [Index(IsUnique = true)]
+        //[Index(IsUnique = true)]
         public required string WriterMail { get; set; }
         [MaxLength(50)]
         public required string WriterPassword { get; set; }

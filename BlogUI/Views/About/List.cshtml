@@ -1,4 +1,4 @@
-﻿@model List<About>
+﻿@model About
 @{
     ViewData["Title"] = "Hakkinda";
     Layout = "~/Views/Shared/_UserLayout.cshtml";
@@ -6,29 +6,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<link href="~/css/single.css" rel='stylesheet' type='text/css' />
+    <link href="~/css/single.css" rel='stylesheet' type='text/css' />
 </head>
 <body>
-	@section UserAsidePostsComponent {
-		@await Component.InvokeAsync("UserAsidePostsComponent")
-	}
-				<div class="col-lg-8 left-blog-info-w3layouts-agileits text-left">
-					<div class="blog-grid-top">
-						<div class="blog_info_left_grid">
-							<a href="single.html">
-								<img src="~/userThema/images/b5.jpg" class="img-fluid" alt="">
-							</a>
-						</div>
-						<h3>
-							Biz Kimiz & Misyonumuz & Vizyonumuz
-						</h3>
-						<p>
-							Lorem ipsum dolor sit amet consectetur adipisicing elit sedc dnmo eiusmod tempor incididunt ut labore et dolore magna
-							aliqua uta enim ad minim ven iam quis nostrud exercitation ullamco labor nisi ut aliquip exea commodo consequat duis
-							aute irudre dolor in elit sed uta labore dolore reprehender
-						</p>
-						<a href="single.html" class="btn btn-primary read-m">Read More</a>
-					</div>
-				</div>
+    @section UserAsidePostsComponent {
+        @await Component.InvokeAsync("UserAsidePostsComponent")
+    }
+    <div class="col-lg-8 left-blog-info-w3layouts-agileits text-left">
+        <div class="blog-grid-top">
+            <div class="blog_info_left_grid">
+                    <img src="@Model.AboutImage1" class="img-fluid" alt="...">
+            </div>
+            <h3>
+                Biz Kimiz & Misyonumuz & Vizyonumuz
+            </h3>
+            <p>
+                @Model.AboutDetails1
+            </p>
+            <p>
+                @Model.AboutDetails2
+            </p>
+        </div>
+    </div>
 </body>
 </html>

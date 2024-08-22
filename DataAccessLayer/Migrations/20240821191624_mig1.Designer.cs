@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccessLayer.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20240731140955_mig8")]
-    partial class mig8
+    [Migration("20240821191624_mig1")]
+    partial class mig1
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -27,21 +27,21 @@ namespace DataAccessLayer.Migrations
 
             modelBuilder.Entity("EntityLayer.Concrete.About", b =>
                 {
-                    b.Property<byte>("AboutID")
+                    b.Property<int>("AboutID")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("tinyint");
+                        .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<byte>("AboutID"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AboutID"));
 
                     b.Property<string>("AboutDetails1")
                         .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasMaxLength(300)
+                        .HasColumnType("nvarchar(300)");
 
                     b.Property<string>("AboutDetails2")
                         .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasMaxLength(1000)
+                        .HasColumnType("nvarchar(1000)");
 
                     b.Property<string>("AboutImage1")
                         .IsRequired()
@@ -53,17 +53,19 @@ namespace DataAccessLayer.Migrations
                         .HasMaxLength(250)
                         .HasColumnType("nvarchar(250)");
 
-                    b.Property<string>("AboutMapLocation")
-                        .IsRequired()
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
-
-                    b.Property<bool>("AboutStatus")
-                        .HasColumnType("bit");
-
                     b.HasKey("AboutID");
 
                     b.ToTable("Abouts");
+
+                    b.HasData(
+                        new
+                        {
+                            AboutID = 1,
+                            AboutDetails1 = "Her konuya hitap eden bloglarımızla bilgi dolu bir yolculuğa çıkın! İlham verici makaleler ve pratik tavsiyelerle dolu sitemizde aradığınız her şeyi bulacaksınız.",
+                            AboutDetails2 = "Her yaşa, ilgi alanına ve ihtiyaca yönelik zengin içeriklerle dolu bloglarımız, bilgiye ulaşmanın en keyifli yolunu sunuyor. Gündelik yaşamdan teknolojiye, sağlıktan seyahate kadar geniş yelpazede ele aldığımız konularla, hem öğrenirken hem de eğleneceksiniz. Uzman yazarlarımızın kaleminden çıkan güncel ve özgün makalelerle hayatınıza değer katın. Sitemizde yer alan pratik tavsiyeler, ilham dolu fikirler ve derinlemesine analizlerle bilginin gücünü keşfedin!",
+                            AboutImage1 = "https://img.freepik.com/free-vector/blogging-fun-content-creation-online-streaming-video-blog-young-girl-making-selfie-social-network-sharing-feedback-self-promotion-strategy-vector-isolated-concept-metaphor-illustration_335657-855.jpg",
+                            AboutImage2 = "https://techstory.in/wp-content/uploads/2022/11/Blogging.jpg"
+                        });
                 });
 
             modelBuilder.Entity("EntityLayer.Concrete.Blog", b =>
@@ -250,6 +252,16 @@ namespace DataAccessLayer.Migrations
                     b.HasKey("ContactAboutID");
 
                     b.ToTable("ContactAbouts");
+
+                    b.HasData(
+                        new
+                        {
+                            ContactAboutID = 1,
+                            Address = "Silivri,İstanbul",
+                            IFrameLocation = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d192502.9383590522!2d28.03599348690269!3d41.07208749327083!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14b53fdbc4bfe901%3A0x6f637ffe39da55b6!2sSilivri%2C%20%C4%B0stanbul!5e0!3m2!1str!2str!4v1724266980119!5m2!1str!2str",
+                            Mail = "dogukandevp@gmail.com",
+                            Phone = "905455111134"
+                        });
                 });
 
             modelBuilder.Entity("EntityLayer.Concrete.NewsLetter", b =>
@@ -262,7 +274,8 @@ namespace DataAccessLayer.Migrations
 
                     b.Property<string>("Mail")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<bool>("MailStatus")
                         .HasColumnType("bit");
@@ -270,6 +283,49 @@ namespace DataAccessLayer.Migrations
                     b.HasKey("NewsLetterID");
 
                     b.ToTable("NewsLetters");
+                });
+
+            modelBuilder.Entity("EntityLayer.Concrete.SocialMedia", b =>
+                {
+                    b.Property<int>("SocialMediaID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("SocialMediaID"));
+
+                    b.Property<string>("FacebookLink")
+                        .IsRequired()
+                        .HasMaxLength(150)
+                        .HasColumnType("nvarchar(150)");
+
+                    b.Property<string>("GithubLink")
+                        .IsRequired()
+                        .HasMaxLength(150)
+                        .HasColumnType("nvarchar(150)");
+
+                    b.Property<string>("GoogleLink")
+                        .IsRequired()
+                        .HasMaxLength(150)
+                        .HasColumnType("nvarchar(150)");
+
+                    b.Property<string>("InstagramLink")
+                        .IsRequired()
+                        .HasMaxLength(150)
+                        .HasColumnType("nvarchar(150)");
+
+                    b.HasKey("SocialMediaID");
+
+                    b.ToTable("SocialMedias");
+
+                    b.HasData(
+                        new
+                        {
+                            SocialMediaID = 1,
+                            FacebookLink = "https://tr-tr.facebook.com/people/Do%C4%9Fukan-Ko%C5%9Fan/pfbid0QFcRA34xX6CGRSAMhyekwT7dbEsvuqxbsUDXK6kjrwM3BP7HWKfNuB7vAPmb1Avfl/",
+                            GithubLink = "https://github.com/dogukankosan",
+                            GoogleLink = "dogukandevp@gmail.com",
+                            InstagramLink = "https://www.instagram.com/dogukankosan/"
+                        });
                 });
 
             modelBuilder.Entity("EntityLayer.Concrete.Writer", b =>

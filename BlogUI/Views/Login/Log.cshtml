@@ -1,5 +1,5 @@
 ﻿@{
-    ViewData["Title"] = "GirişEkrani";
+    ViewData["Title"] = "GirisEkrani";
     Layout = "~/Views/Shared/_UserLayout.cshtml";
 }
 <!DOCTYPE html>
@@ -8,11 +8,11 @@
     <link href="~/userThema/css/single.css" rel='stylesheet' type='text/css' />
 </head>
 <body>
-        <div class="container">
+    <div class="container">
     <h3 class="tittle">Yazar Giriş Ekranı</h3>
-    <div class="row inner-sec">
-        <div class="login p-5 bg-light mx-auto">
-            <form asp-action="Yap" asp-controller="Giriş" method="post">
+    <div class="inner-sec">
+            <div class="login p-5 bg-light mx-auto">
+            <form asp-action="Yap" asp-controller="Giris" method="post">
                 <div class="form-group">
                     <label for="exampleInputEmail1 mb-2">E-Mail</label>
                     <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="" required="">

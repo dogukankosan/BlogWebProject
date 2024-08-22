@@ -11,25 +11,13 @@ namespace BusinessLayer.Concrete
 		{
 			_aboutDal = aboutDal;
 		}
-		public void AboutAdd(About blog)
+		public void AboutUpdate(About about)
 		{
-			_aboutDal.Add(blog);
-		}
-		public void AboutRemove(About blog)
-		{
-			_aboutDal.Remove(blog);
-		}
-		public void AboutUpdate(About blog)
-		{
-			_aboutDal.Update(blog);
+			_aboutDal.Update(about);
 		}
 		public About GetAboutById(int id)
 		{
 			return _aboutDal.GetByID(id);
-		}
-		public List<About> GetAllList()
-		{
-			return _aboutDal.ListAll();
 		}
 	}
 }

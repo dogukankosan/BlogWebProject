@@ -4,10 +4,7 @@ namespace BusinessLayer.Abstract
 {
 	internal interface IAboutService
 	{
-		void AboutAdd(About blog);
-		void AboutUpdate(About blog);
-		void AboutRemove(About blog);
-		List<About> GetAllList();
+		void AboutUpdate(About about);
 		About GetAboutById(int id);
 	}
 }
