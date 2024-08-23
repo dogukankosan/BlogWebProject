@@ -10,7 +10,6 @@ namespace EntityLayer.Concrete
         public int BlogID { get; set; }
         [MaxLength(50)]
         public required string BlogTitle { get; set; }
-        [MaxLength(250)]
         public required string BlogContent { get; set; }
         [MaxLength(250)]
         public required string BlogSmallImage { get; set; }
